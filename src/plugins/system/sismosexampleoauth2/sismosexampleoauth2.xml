@@ -13,28 +13,17 @@
 	<scriptfile>script.php</scriptfile>
 	<!-- Plugin files -->
 	<files>
-		<!-- <folder>forms</folder> -->
 		<folder>language</folder>
 		<folder plugin="sismosexampleoauth2">services</folder>
 		<folder>src</folder>
-		<!-- <folder>tmpl</folder> -->
 	</files>
 	<media destination="plg_system_sismosexampleoauth2" folder="media">
 		<folder>js</folder>
-		<folder>css</folder>
-		<folder>scss</folder>
-		<!-- <folder>images</folder> -->
 	</media>
-	<languages folder="language">
-		<language tag="en-GB">en-GB/plg_system_sismosexampleoauth2.ini</language>
-		<language tag="en-GB">en-GB/plg_system_sismosexampleoauth2.sys.ini</language>
-		<language tag="de-DE">de-DE/plg_system_sismosexampleoauth2.ini</language>
-		<language tag="de-DE">de-DE/plg_system_sismosexampleoauth2.sys.ini</language>
-	</languages>
 	<config>
 		<fields name="params">
 			<fieldset name="basic" addfieldprefix="SiSmOS\Plugin\System\Sismosexampleoauth2\Field">
-                <field
+				<field
 					name="base_url"
 					type="url"
 					required="true"
@@ -50,12 +39,12 @@
 				<field
 					name="secret_key"
 					type="password"
-                    default=""
-                    filter="raw"
+					default=""
+					filter="raw"
 					label="PLG_SYSTEM_SISMOSEXAMPLEOAUTH2_SECRET_KEY"
 					description="PLG_SYSTEM_SISMOSEXAMPLEOAUTH2_SECRET_KEY_DESC"
 				/>
-                <field
+				<field
 					name="log_on"
 					type="radio"
 					default="1"
