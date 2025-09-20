@@ -2,7 +2,8 @@
 
 ## Overview
 
-This system plugin uses the Joomla! OAuth2 framework package and enables users to authenticate via an external OAuth2 provider with ease for testing purposes.
+**This system plugin is itended for testing and educational purposes only!**\
+The plugin uses the Joomla! OAuth2 framework package and enables users to authenticate via an external OAuth2 provider with ease for testing purposes.
 
 ## Key features
 - Redirects users to an OAuth2 authorization endpoint and handles authorization code exchange.
