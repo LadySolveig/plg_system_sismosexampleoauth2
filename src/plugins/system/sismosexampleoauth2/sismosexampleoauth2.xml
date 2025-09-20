@@ -49,7 +49,9 @@
 				/>
 				<field
 					name="secret_key"
-					type="text"
+					type="password"
+                    default=""
+                    filter="raw"
 					label="PLG_SYSTEM_SISMOSEXAMPLEOAUTH2_SECRET_KEY"
 					description="PLG_SYSTEM_SISMOSEXAMPLEOAUTH2_SECRET_KEY_DESC"
 				/>
