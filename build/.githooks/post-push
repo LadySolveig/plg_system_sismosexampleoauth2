@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# This hook is run after a successful push.
+# It checks if the pre-push hook created a new commit and, if so, pushes it.
+
+# We need to find out which branch and remote were just pushed.
+# Stdin to post-push is in the format <local ref> <local sha> <remote ref> <remote sha>
+# We'll use the remote name passed as $1 to this hook (if available), otherwise default to 'origin'.
+
+remote="$1"
+if [ -z "$remote" ]; then
+    remote="origin"
+fi
+
+while read local_ref local_sha remote_ref remote_sha
+do
+    # Check if it's a branch push
+    if echo "$local_ref" | grep -q "refs/heads/"; then
+        # Check if there are any local commits that have not been pushed to the remote tracking branch.
+        # The @{u} or @{upstream} shorthand refers to the remote tracking branch.
+        if [ -n "$(git log @{u}..HEAD)" ]; then
+            echo "✅ Found new local commit created by pre-push hook."
+            echo "🚀 Pushing code style commit automatically..."
+
+            # Push the current branch again, but disable hooks for this push to prevent an infinite loop.
+            # The -c core.hooksPath=/dev/null flag is a temporary override for this one command.
+            git -c core.hooksPath=/dev/null push "$remote" "$(git rev-parse --abbrev-ref HEAD)"
+
+            if [ $? -ne 0 ]; then
+                echo "❌ The automatic push of the code style commit failed. Please run 'git push' manually."
+            else
+                echo "✅ Automatic push successful."
+            fi
+        fi
+    fi
+done
+
+exit 0
+

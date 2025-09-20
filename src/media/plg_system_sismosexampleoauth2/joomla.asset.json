@@ -1,0 +1,27 @@
+{
+    "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+    "name": "plg_system_sismosexampleoauth2",
+    "version": "1.0.0",
+    "description": "This file contains details of the assets used by system plugin sismosexampleoauth2.",
+    "license": "GPL-3.0-or-later",
+    "assets": [
+      {
+        "name": "plg_system_sismosexampleoauth2",
+        "type": "script",
+        "uri": "plg_system_sismosexampleoauth2/sismosexampleoauth2",
+        "attributes" : {
+          "type": "module"
+        },
+        "dependencies": [
+          "core"
+        ]
+      },
+      {
+        "name": "plg_system_sismosexampleoauth2",
+        "type": "preset",
+        "dependencies": [
+          "plg_system_sismosexampleoauth2#script"
+        ]
+      }
+    ]
+  }

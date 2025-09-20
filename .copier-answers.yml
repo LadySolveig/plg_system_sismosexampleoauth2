@@ -1,0 +1,25 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 1.2.2
+_src_path: https://git.simplysmart-it.de/JoomCrafts.Software/copier-templates-joomla.git
+author: Martina Scholz
+author_company: SimplySmart-IT
+author_email: support@simplysmart-it.de
+author_full: SimplySmart-IT - Martina Scholz
+author_url: https://simplysmart-it.de
+copyright_year: '2025'
+creation_date: 2025-09
+min_joomla_version: 5.0.0
+min_php_version: 8.1.0
+namespace: SiSmOS
+phpstan_joomlapath: ../joomla/joomla-cms
+plugin_type: system
+plugin_type_choice: system
+project_name: Example OAuth2
+project_slug: sismosexampleoauth2
+project_type: plugin
+short_description: This Plugin is an example for working with the oauth2 framwork
+    class
+use_devtools: true
+use_installerscript: true
+use_media: true
+version: 1.0.0

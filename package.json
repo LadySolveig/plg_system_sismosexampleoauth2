@@ -1,0 +1,41 @@
+{
+  "name": "plg_system_sismosexampleoauth2",
+  "description": "Joomla Plugin Example OAuth2",
+  "version": "1.0.0",
+  "homepage": "https://simplysmart-it.de",
+  "copyright": "(C) 2025, SimplySmart-IT - Martina Scholz <https://simplysmart-it.de>. All rights reserved.",
+  "config": {
+    "build": {
+      "extension": "build/tmp",
+      "media": "build/tmp/media",
+      "bannerlink": "https://simplysmart-it.de",
+      "bannercopyright": "(C) 2025, SimplySmart-IT - Martina Scholz <https://simplysmart-it.de>. All rights reserved."
+    },
+    "dev": {
+      "extension": "src/plugins/system/sismosexampleoauth2",
+      "media": "src/media/plg_system_sismosexampleoauth2"
+    }
+  },
+  "devDependencies": {
+    "@atao60/fse-cli": "^0.1.9",
+    "esbuild": "^0.21.4",
+    "esbuild-plugin-compress": "^1.0.1",
+    "eslint": "^8.51.0",
+    "gzipper": "^7.2.0"
+  },
+  "scripts": {
+    "postinstall": "git config --local include.path ../.gitconfig",
+    "eslint:check": "eslint --no-error-on-unmatched-pattern --config .eslintrc.js --ext .js ./",
+    "eslint:fix": "eslint --no-error-on-unmatched-pattern --fix --config .eslintrc.js --ext .js ./",
+    "prejs:minify": "fse-cli emptyDir --quiet ./$npm_package_config_build_media/js && fse-cli copy --keepExisting --quiet ./$npm_package_config_dev_media/js ./$npm_package_config_build_media/js",
+    "js:minify": "esbuild ./$npm_package_config_build_media/js/**/*.js --minify --entry-names=[name].min --allow-overwrite --outdir=./$npm_package_config_build_media/js --analyze --color=true",
+    "compile": "npm run js:minify",
+    "banner:js": "if [ -d ./$npm_package_config_build_media/js ]; then esbuild ./$npm_package_config_build_media/js/**/*.js --allow-overwrite --outdir=./$npm_package_config_build_media/js --banner:js=\"// @package   $npm_package_name  v$npm_package_version\n// @link  $npm_package_config_build_bannerlink\n// @copyright   $npm_package_config_build_bannercopyright\n\n\"; fi",
+    "precompile": "fse-cli copy --quiet ./$npm_package_config_dev_media/joomla.asset.json ./$npm_package_config_build_media/joomla.asset.json",
+    "postcompile": "npm banner:js && gzipper compress ./$npm_package_config_build_media --gzip --verbose --remove-larger --include js,css",
+    "prebuild:prod": "npm i && fse-cli emptyDir --quiet ./$npm_package_config_build_extension && composer i && composer header ./src && fse-cli copy --quiet ./$npm_package_config_dev_extension ./$npm_package_config_build_extension",
+    "build:prod": "npm run compile && node build/SetupPackage.mjs && cd build/tmp && npm pack",
+    "postbuild:prod": "fse-cli copy ./${npm_package_config_build_extension}/${npm_package_name}-${npm_package_version}.zip ./${npm_package_config_build_extension}/../${npm_package_name}-${npm_package_version}.zip",
+    "clean:build": "rm ./${npm_package_config_build_extension}/../${npm_package_name}-${npm_package_version}.zip && fse-cli remove --quiet ./${npm_package_config_build_extension}"
+  }
+}

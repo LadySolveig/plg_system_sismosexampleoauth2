@@ -1,0 +1,50 @@
+#!/bin/sh
+
+# This hook is run before a push.
+# It ensures code style and quality before pushing to the remote.
+#
+# The script will:
+#   - Run Composer install quietly to ensure dependencies are up to date.
+#   - Stash any uncommitted changes (including untracked files).
+#   - Run code style fixers (phpcbf, csfixer) quietly.
+#   - If code style fixers made changes, commit them as a separate commit.
+#   - Restore any stashed changes.
+#   - Allow the push to proceed (even if a new commit was created).
+#
+# If a code style commit is created, a post-push hook can be used to push it automatically.
+
+# Step 1: Ensure dependencies are up to date
+composer install --optimize-autoloader > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+    echo "❗Composer install failed. No code style checks will be performed."
+    exit 0
+fi
+
+# Step 2: Stash any uncommitted changes
+# (including untracked files, to avoid interfering with code style fixers)
+git stash push --include-untracked > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+    echo "⚠️ Git stash failed. No code style checks will be performed."
+    exit 0
+fi
+
+# Step 3: Run code style fixers quietly
+composer run phpcbf > /dev/null 2>&1
+composer run csfixer:fix > /dev/null 2>&1
+
+# Step 4: If code style fixers made changes, commit them
+if ! git diff --exit-code > /dev/null; then
+    git add .
+    git commit -m "🚨 [CS] Code style fixes"
+    echo "✅ Committed changes after running the fixers."
+fi
+
+# Step 5: Restore any stashed changes
+git stash pop --index > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+    echo "⚠️ Git stash pop failed. Please check your changes."
+fi
+
+# Step 6: Allow the push to proceed
+exit 0
+

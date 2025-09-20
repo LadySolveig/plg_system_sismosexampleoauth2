@@ -1,0 +1,49 @@
+module.exports = {
+	'env': {
+		'browser': true,
+		'es2021': true
+	},
+	'extends': 'eslint:recommended',
+	'overrides': [
+		{
+			'env': {
+				'node': true
+			},
+			'files': [
+				'.eslintrc.{js,cjs}'
+			],
+			'parserOptions': {
+				'sourceType': 'script'
+			}
+		}
+	],
+	'globals': {
+		'Joomla': true,
+		'MediaManager' : true,
+		'bootstrap': true
+	},
+	'parserOptions': {
+		'ecmaVersion': 'latest',
+		'sourceType': 'module'
+	},
+	'rules': {
+		'indent': [
+			'error',
+			2,
+			{ 'SwitchCase': 2 }
+		],
+		'linebreak-style': [
+			'error',
+			'unix'
+		],
+		'quotes': [
+			'error',
+			'single'
+		],
+		'semi': [
+			'error',
+			'always'
+		]
+	},
+	'ignorePatterns': ['**/node_modules/**/*', '**/vendor/**/*', '**/.eslintrc.js']
+};
