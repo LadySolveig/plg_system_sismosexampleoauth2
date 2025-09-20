@@ -32,7 +32,7 @@
     "compile": "npm run js:minify",
     "banner:js": "if [ -d ./$npm_package_config_build_media/js ]; then esbuild ./$npm_package_config_build_media/js/**/*.js --allow-overwrite --outdir=./$npm_package_config_build_media/js --banner:js=\"// @package   $npm_package_name  v$npm_package_version\n// @link  $npm_package_config_build_bannerlink\n// @copyright   $npm_package_config_build_bannercopyright\n\n\"; fi",
     "precompile": "fse-cli copy --quiet ./$npm_package_config_dev_media/joomla.asset.json ./$npm_package_config_build_media/joomla.asset.json",
-    "postcompile": "npm banner:js && gzipper compress ./$npm_package_config_build_media --gzip --verbose --remove-larger --include js,css",
+    "postcompile": "npm run banner:js && gzipper compress ./$npm_package_config_build_media --gzip --verbose --remove-larger --include js,css",
     "prebuild:prod": "npm i && fse-cli emptyDir --quiet ./$npm_package_config_build_extension && composer i && composer header ./src && fse-cli copy --quiet ./$npm_package_config_dev_extension ./$npm_package_config_build_extension",
     "build:prod": "npm run compile && node build/SetupPackage.mjs && cd build/tmp && npm pack",
     "postbuild:prod": "fse-cli copy ./${npm_package_config_build_extension}/${npm_package_name}-${npm_package_version}.zip ./${npm_package_config_build_extension}/../${npm_package_name}-${npm_package_version}.zip",

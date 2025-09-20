@@ -11,7 +11,7 @@
  *
  * @link https://github.com/FriendsOfPHP/PHP-CS-Fixer
  * @link https://mlocati.github.io/php-cs-fixer-configurator/#version:3.0
- * 
+ *
  */
 
 // All files in tmp folder created in build process
@@ -23,7 +23,6 @@ $finder = PhpCsFixer\Finder::create()
         );
 
 $header = <<<EOF
-
 @package    SiSmOS.Plugin
 @subpackage System.sismosexampleoauth2
 
@@ -32,7 +31,6 @@ $header = <<<EOF
 @copyright  (C) 2025, SimplySmart-IT - Martina Scholz <https://simplysmart-it.de>
 @license    GNU General Public License version 3 or later; see LICENSE
 @link       https://simplysmart-it.de
-
 EOF;
 
 $config = new PhpCsFixer\Config();
