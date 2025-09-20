@@ -29,10 +29,12 @@ Open the plugin configuration in the Joomla admin and set the following values:
    You have to replace `[your-joomla-site.com]` with your actual Joomla site domain.
 - Debug / Logging — Enable detailed logs for troubleshooting.
 
+<img width="1428" height="981" alt="image" src="https://github.com/user-attachments/assets/1f2761b7-fec7-477d-9c23-e66d67c74dc6" />
+
 ## Usage
 
-- When enabled, the plugin will intercept authentication-related routes and initiate the OAuth2 flow as configured.
-- Typical flow:
+When enabled, the plugin will intercept authentication-related routes and initiate the OAuth2 flow as configured.\
+Typical flow:
   1. User clicks "Generate Token"
   2. User authenticates at the provider and consents to requested scopes.
   3. Provider redirects back to the site with an authorization code.
