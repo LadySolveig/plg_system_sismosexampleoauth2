@@ -24,7 +24,7 @@ use Joomla\DI\ServiceProviderInterface;
 /**
  * Installer service provider of plg_system_sismosexampleoauth2 Component
  *
- * @since  __DEPLOY_VERSION__
+ * @since  1.0.0
  */
 return new class () implements ServiceProviderInterface {
     /**
@@ -34,7 +34,7 @@ return new class () implements ServiceProviderInterface {
      *
      * @return  void
      *
-     * @since  __DEPLOY_VERSION__
+     * @since  1.0.0
      */
     public function register(Container $container)
     {
@@ -47,7 +47,7 @@ return new class () implements ServiceProviderInterface {
                  * Minimum Joomla version to check
                  *
                  * @var    string
-                 * @since  __DEPLOY_VERSION__
+                 * @since  1.0.0
                  */
                 protected $minimumJoomla = '5.0.0';
 
@@ -55,7 +55,7 @@ return new class () implements ServiceProviderInterface {
                  * Minimum PHP version to check
                  *
                  * @var    string
-                 * @since  __DEPLOY_VERSION__
+                 * @since  1.0.0
                 */
                 protected $minimumPhp = '8.1.0';
 
@@ -63,7 +63,7 @@ return new class () implements ServiceProviderInterface {
                  * The application object
                  *
                  * @var AdministratorApplication
-                 * @since  __DEPLOY_VERSION__
+                 * @since  1.0.0
                  */
                 private AdministratorApplication $app;
 
@@ -71,7 +71,7 @@ return new class () implements ServiceProviderInterface {
                  * True when we have to update the searchable fields
                  *
                  * @var boolean
-                 * @since  __DEPLOY_VERSION__
+                 * @since  1.0.0
                  */
                 private $updateSearchable = false;
 
@@ -80,7 +80,7 @@ return new class () implements ServiceProviderInterface {
                  *
                  * @param AdministratorApplication $app The application object
                  *
-                 * @since  __DEPLOY_VERSION__
+                 * @since  1.0.0
                  */
                 public function __construct(AdministratorApplication $app)
                 {
@@ -94,7 +94,7 @@ return new class () implements ServiceProviderInterface {
                  *
                  * @return  boolean  True on success
                  *
-                 * @since  __DEPLOY_VERSION__
+                 * @since  1.0.0
                  */
                 public function install(InstallerAdapter $adapter): bool
                 {
@@ -108,7 +108,7 @@ return new class () implements ServiceProviderInterface {
                  *
                  * @return  boolean  True on success
                  *
-                 * @since  __DEPLOY_VERSION__
+                 * @since  1.0.0
                  */
                 public function update(InstallerAdapter $adapter): bool
                 {
@@ -122,7 +122,7 @@ return new class () implements ServiceProviderInterface {
                  *
                  * @return  boolean  True on success
                  *
-                 * @since  __DEPLOY_VERSION__
+                 * @since  1.0.0
                  */
                 public function uninstall(InstallerAdapter $adapter): bool
                 {
@@ -137,7 +137,7 @@ return new class () implements ServiceProviderInterface {
                  *
                  * @return  boolean  True on success
                  *
-                 * @since  __DEPLOY_VERSION__
+                 * @since  1.0.0
                  */
                 public function preflight(string $type, InstallerAdapter $adapter): bool
                 {
@@ -176,7 +176,7 @@ return new class () implements ServiceProviderInterface {
                  *
                  * @return  boolean  True on success
                  *
-                 * @since  __DEPLOY_VERSION__
+                 * @since  1.0.0
                  */
                 public function postflight(string $type, InstallerAdapter $adapter): bool
                 {

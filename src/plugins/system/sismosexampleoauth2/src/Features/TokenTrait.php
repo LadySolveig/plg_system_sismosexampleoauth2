@@ -33,7 +33,7 @@ use Joomla\Utilities\ArrayHelper;
 /**
  * Feature: Token Handling
  *
- * @since   __DEPLOY_VERSION__
+ * @since   1.0.0
  */
 trait TokenTrait
 {
@@ -45,7 +45,7 @@ trait TokenTrait
      *
      * @return void
      *
-     * @since __DEPLOY_VERSION__
+     * @since 1.0.0
      */
     public function onExtensionBeforeSave(Model\SaveEvent $event): void
     {
@@ -80,7 +80,7 @@ trait TokenTrait
      *
      * @return void
      *
-     * @since __DEPLOY_VERSION__
+     * @since 1.0.0
      */
     public function onExtensionAfterSave(Model\SaveEvent $event): void
     {
@@ -123,7 +123,7 @@ trait TokenTrait
     /**
      * OAuth2 Authentication routine.
      *
-     * @since __DEPLOY_VERSION__
+     * @since 1.0.0
      * @throws Exception
      */
     protected function OAuth2Authenticate()
@@ -181,7 +181,7 @@ trait TokenTrait
      *
      * @param array|object $response The response from the token endpoint.
      *
-     * @since __DEPLOY_VERSION__
+     * @since 1.0.0
      */
     private function saveToken(array|object $response)
     {

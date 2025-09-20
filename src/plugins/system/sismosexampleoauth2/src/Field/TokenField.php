@@ -26,7 +26,7 @@ use SimpleXMLElement;
 /**
  * The Field to show, create and refresh a oauth token
  *
- * @since  __DEPLOY_VERSION__
+ * @since  1.0.0
  */
 class TokenField extends SubformField
 {
@@ -45,7 +45,7 @@ class TokenField extends SubformField
      *
      * @return  boolean  True on success.
      *
-     * @since   __DEPLOY_VERSION__
+     * @since   1.0.0
      */
     public function setup(\SimpleXMLElement $element, $value, $group = null)
     {
@@ -154,7 +154,7 @@ XML;
      *
      * @return  string  The field input markup.
      *
-     * @since   __DEPLOY_VERSION__
+     * @since   1.0.0
      */
     protected function getInput()
     {

@@ -32,7 +32,7 @@ use SiSmOS\Plugin\System\Sismosexampleoauth2\Features\TokenTrait;
 /**
  * Sismosexampleoauth2 System Plugin
  *
- * @since  __DEPLOY_VERSION__
+ * @since  1.0.0
  */
 final class Sismosexampleoauth2 extends CMSPlugin implements SubscriberInterface
 {
@@ -47,7 +47,7 @@ final class Sismosexampleoauth2 extends CMSPlugin implements SubscriberInterface
      * Application object
      *
      * @var    CMSApplication
-     * @since  __DEPLOY_VERSION__
+     * @since  1.0.0
      */
     protected $app;
 
@@ -57,7 +57,7 @@ final class Sismosexampleoauth2 extends CMSPlugin implements SubscriberInterface
      * If you want to support 3.0 series you must override the constructor
      *
      * @var    boolean
-     * @since  __DEPLOY_VERSION__
+     * @since  1.0.0
      */
     protected $autoloadLanguage = true;
 
@@ -86,7 +86,7 @@ final class Sismosexampleoauth2 extends CMSPlugin implements SubscriberInterface
      *
      * @return  array
      *
-     * @since   __DEPLOY_VERSION__
+     * @since   1.0.0
      *
      * @see libraries/src/Event/CoreEventAware.php
      */
@@ -114,7 +114,7 @@ final class Sismosexampleoauth2 extends CMSPlugin implements SubscriberInterface
      *
      * @return  void
      *
-     * @since __DEPLOY_VERSION__
+     * @since 1.0.0
      */
     public function onAjaxSismosexampleoauth2(AjaxEvent $event)
     {
@@ -144,7 +144,7 @@ final class Sismosexampleoauth2 extends CMSPlugin implements SubscriberInterface
      *
      * @return void
      *
-     * @since __DEPLOY_VERSION__
+     * @since 1.0.0
      */
     public function onExtensionBeforeSave(Model\SaveEvent $event): void
     {
