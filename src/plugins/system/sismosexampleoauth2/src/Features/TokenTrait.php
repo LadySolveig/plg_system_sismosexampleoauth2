@@ -26,9 +26,9 @@ use Joomla\Database\DatabaseAwareTrait;
 use Joomla\Database\DatabaseInterface;
 use Joomla\Database\ParameterType;
 use Joomla\Http\Exception\UnexpectedResponseException;
+use Joomla\OAuth2\Client as OAuth2Client;
 use Joomla\Registry\Registry;
 use Joomla\Utilities\ArrayHelper;
-use Joomla\OAuth2\Client as OAuth2Client;
 
 /**
  * Feature: Token Handling
@@ -113,7 +113,6 @@ trait TokenTrait
 
                 // @todo try/catch? or test
                 $this->OAuth2Authenticate();
-
             } else {
                 $app->enqueueMessage(Text::_('PLG_SYSTEM_SISMOSEXAMPLEOAUTH2_ERROR_ONLY_ADMIN_CAN_AUTHORIZE'), 'warning');
                 $this->log('Only admins can authorise API connections.', Log::ERROR);
@@ -193,9 +192,9 @@ trait TokenTrait
             return;
         }
 
-        $accessTokenData = (object) $response;
+        $accessTokenData          = (object) $response;
         $accessTokenData->created = Factory::getDate()->toSql();
-        $logTokenData    = clone $accessTokenData;
+        $logTokenData             = clone $accessTokenData;
 
         // mask sensitive information for log
         $logTokenData->access_token  = '**(hidden)**';
@@ -205,7 +204,7 @@ trait TokenTrait
         $this->getParams()->set('code', '');
 
         $params = json_encode($this->getParams(), JSON_UNESCAPED_SLASHES);
-        $this->log('authorize::accessTokenData: ' . \var_export($logTokenData, true), Log::INFO);
+        $this->log('authorize::accessTokenData: ' . var_export($logTokenData, true), Log::INFO);
 
         $db = $this->getDB();
         try {

@@ -13,7 +13,6 @@
 
 namespace SiSmOS\Plugin\System\Sismosexampleoauth2\Field;
 
-use DateTime;
 use Joomla\CMS\Date\Date;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Form\Field\SubformField;

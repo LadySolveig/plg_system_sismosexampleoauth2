@@ -11,18 +11,18 @@
  * @link       https://simplysmart-it.de
  */
 
- \defined('_JEXEC') or die;
+\defined('_JEXEC') or die;
 
- use Joomla\CMS\Extension\PluginInterface;
- use Joomla\CMS\Factory;
- use Joomla\CMS\Plugin\PluginHelper;
- use Joomla\Database\DatabaseInterface;
- use Joomla\DI\Container;
- use Joomla\DI\ServiceProviderInterface;
- use Joomla\Event\DispatcherInterface;
- use SiSmOS\Plugin\System\Sismosexampleoauth2\Extension\Sismosexampleoauth2;
+use Joomla\CMS\Extension\PluginInterface;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Plugin\PluginHelper;
+use Joomla\Database\DatabaseInterface;
+use Joomla\DI\Container;
+use Joomla\DI\ServiceProviderInterface;
+use Joomla\Event\DispatcherInterface;
+use SiSmOS\Plugin\System\Sismosexampleoauth2\Extension\Sismosexampleoauth2;
 
- return new class () implements ServiceProviderInterface {
+return new class () implements ServiceProviderInterface {
     /**
      * Registers the service provider with a DI container.
      *

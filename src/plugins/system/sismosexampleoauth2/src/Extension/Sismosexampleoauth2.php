@@ -12,17 +12,18 @@
  */
 
 namespace SiSmOS\Plugin\System\Sismosexampleoauth2\Extension;
-use Joomla\CMS\Plugin\CMSPlugin;
-use Joomla\Database\DatabaseAwareTrait;
+
+use Joomla\CMS\Event\Model;
+use Joomla\CMS\Event\Plugin\AjaxEvent;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Log\Log;
+use Joomla\CMS\Plugin\CMSPlugin;
+use Joomla\CMS\Plugin\PluginHelper;
+use Joomla\CMS\Uri\Uri;
+use Joomla\Database\DatabaseAwareTrait;
 use Joomla\Event\DispatcherInterface;
 use Joomla\Event\SubscriberInterface;
 use SiSmOS\Plugin\System\Sismosexampleoauth2\Features\TokenTrait;
-use Joomla\CMS\Event\Model;
-use Joomla\CMS\Event\Plugin\AjaxEvent;
-use Joomla\CMS\Plugin\PluginHelper;
-use Joomla\CMS\Uri\Uri;
 
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') or die;
@@ -36,8 +37,7 @@ use Joomla\CMS\Uri\Uri;
 final class Sismosexampleoauth2 extends CMSPlugin implements SubscriberInterface
 {
     // Use Traits to improve maintainability by separating functionality into focused units.
-    use TokenTrait
-    {
+    use TokenTrait {
         TokenTrait::onExtensionBeforeSave as protected onExtensionBeforeSave_TokenTrait;
         TokenTrait::onExtensionAfterSave as protected onExtensionAfterSave_TokenTrait;
     }
@@ -75,10 +75,10 @@ final class Sismosexampleoauth2 extends CMSPlugin implements SubscriberInterface
 
         // Define the logger.
         Log::addLogger([
-            'text_file' => 'plg_system_sismosexampleoauth2.php',
+            'text_file'         => 'plg_system_sismosexampleoauth2.php',
             'text_entry_format' => '{DATETIME}	{PRIORITY} {CLIENTIP}	{MESSAGE}',
         ], Log::ALL, [
-            'plg_system_sismosexampleoauth2'
+            'plg_system_sismosexampleoauth2',
         ]);
     }
     /**
@@ -179,5 +179,4 @@ final class Sismosexampleoauth2 extends CMSPlugin implements SubscriberInterface
             Log::add($msg, $type, 'plg_system_sismosexampleoauth2');
         }
     }
-
 }
