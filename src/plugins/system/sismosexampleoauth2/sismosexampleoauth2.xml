@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="plugin" group="system" method="upgrade">
 	<name>plg_system_sismosexampleoauth2</name>
-	<version>1.0.0-alpha</version>
+	<version>1.0.0-alpha2</version>
 	<creationDate>2025-09</creationDate>
 	<author>Martina Scholz</author>
 	<authorEmail>support@simplysmart-it.de</authorEmail>
