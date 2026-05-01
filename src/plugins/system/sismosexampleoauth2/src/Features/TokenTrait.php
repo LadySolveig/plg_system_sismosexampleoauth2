@@ -128,13 +128,19 @@ trait TokenTrait
      */
     protected function OAuth2Authenticate()
     {
+        $tokenUrl = $this->getTokenUrl();
+        $authUrl  = $this->getAuthUrl();
+        $app      = $this->getApplication();
+        $params   = $this->getParams();
 
-        $baseUrl = $this->getBaseUrl();
-        $app     = $this->getApplication();
-        $params  = $this->getParams();
+        if (!$tokenUrl) {
+            $this->log('Token endpoint URL missing.', Log::ERROR);
+            throw new \Exception(Text::_('PLG_SYSTEM_SISMOSEXAMPLEOAUTH2_AUTH_MISSING_DATA_ERROR'));
+            return;
+        }
 
-        if (!$baseUrl) {
-            $this->log('Base URL missing.', Log::ERROR);
+        if (!$authUrl) {
+            $this->log('Authentication endpoint URL missing.', Log::ERROR);
             throw new \Exception(Text::_('PLG_SYSTEM_SISMOSEXAMPLEOAUTH2_AUTH_MISSING_DATA_ERROR'));
             return;
         }
@@ -145,8 +151,8 @@ trait TokenTrait
             'redirecturi'  => $redirect,
             'clientid'     => $params->get('public_key', 1),
             'clientsecret' => $params->get('secret_key', ''),
-            'tokenurl'     => $baseUrl . '/login/oauth/access_token',
-            'authurl'      => $baseUrl . '/login/oauth/authorize',
+            'tokenurl'     => $tokenUrl,
+            'authurl'      => $authUrl,
         ];
 
         $token = $params->get('token', '');
@@ -250,12 +256,21 @@ trait TokenTrait
     }
 
     /**
-     * Get the baseUrl for OAuth2
+     * Get the tokenUrl for OAuth2
      */
-    private function getBaseUrl()
+    private function getTokenUrl()
     {
-        $baseUrl = $this->getParams()->get('base_url', '');
-        return $baseUrl ? trim($baseUrl, " \t\n\r\0\x0B/") : '';
+        $tokenUrl = $this->getParams()->get('token_url', '');
+        return $tokenUrl ? trim($tokenUrl, " \t\n\r\0\x0B/") : '';
+    }
+
+    /**
+     * Get the authUrl for OAuth2
+     */
+    private function getAuthUrl()
+    {
+        $authUrl = $this->getParams()->get('auth_url', '');
+        return $authUrl ? trim($authUrl, " \t\n\r\0\x0B/") : '';
     }
 
     /**

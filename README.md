@@ -23,10 +23,9 @@ Open the plugin configuration in the Joomla admin and set the following values:
 
 - Client ID — OAuth2 client identifier issued by the provider.
 - Client Secret — OAuth2 client secret (keep this safe).
-- Base URL — The base URL of the OAuth2 provider (e.g., https://github.com).
-- Authorization Endpoint — URL where users are redirected to authenticate. [TODO]
-- Token Endpoint — URL used to exchange the authorization code for tokens. [TODO]
-- Redirect URI — The redirect is processed by the plugin via Ajax. The Authorization callback URL that you most likely also have to set in the provider settings is `https://[your-joomla-site.com]/?index.php&option=com_ajax&plugin=sismosexampleoauth2&format=raw`.\
+- Authorization Endpoint — The URL for the OAuth2 authentication request (e.g. `https://github.com/login/oauth/authorize`).
+- Token Endpoint — The URL for the OAuth2 token request (e.g. `https://github.com/login/oauth/access_token`).
+- Redirect URI — The redirect is processed by the plugin via Ajax. The Authorization callback URL that you most likely also have to set in the provider settings is `https://[your-joomla-site.com]/index.php?option=com_ajax&plugin=sismosexampleoauth2&format=raw`.\
    You have to replace `[your-joomla-site.com]` with your actual Joomla site domain.
 - Debug / Logging — Enable detailed logs for troubleshooting.
 
