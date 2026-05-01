@@ -24,11 +24,18 @@
 		<fields name="params">
 			<fieldset name="basic" addfieldprefix="SiSmOS\Plugin\System\Sismosexampleoauth2\Field">
 				<field
-					name="base_url"
+					name="auth_url"
 					type="url"
 					required="true"
-					label="PLG_SYSTEM_SISMOSEXAMPLEOAUTH2_BASE_URL"
-					description="PLG_SYSTEM_SISMOSEXAMPLEOAUTH2_BASE_URL_DESC"
+					label="PLG_SYSTEM_SISMOSEXAMPLEOAUTH2_AUTH_URL"
+					description="PLG_SYSTEM_SISMOSEXAMPLEOAUTH2_AUTH_URL_DESC"
+				/>
+				<field
+					name="token_url"
+					type="url"
+					required="true"
+					label="PLG_SYSTEM_SISMOSEXAMPLEOAUTH2_TOKEN_URL"
+					description="PLG_SYSTEM_SISMOSEXAMPLEOAUTH2_TOKEN_URL_DESC"
 				/>
 				<field
 					name="public_key"
