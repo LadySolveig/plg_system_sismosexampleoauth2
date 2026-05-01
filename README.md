@@ -29,7 +29,7 @@ Open the plugin configuration in the Joomla admin and set the following values:
    You have to replace `[your-joomla-site.com]` with your actual Joomla site domain.
 - Debug / Logging — Enable detailed logs for troubleshooting.
 
-<img width="1428" height="981" alt="image" src="https://github.com/user-attachments/assets/1f2761b7-fec7-477d-9c23-e66d67c74dc6" />
+<img width="1403" height="1011" alt="Plugin Configuration Options" src="https://github.com/user-attachments/assets/f195e191-d5c9-4cff-acf0-f9721f2c20f5" />
 
 ## Usage
 
