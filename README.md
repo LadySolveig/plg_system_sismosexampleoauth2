@@ -60,3 +60,4 @@ This plugin is provided as a sample. For production use, review the code thoroug
 ## Changelog
 
 - 1.0.0 — Initial sample plugin with basic OAuth2 authorization code flow.
+- 2.0.0 — Refactored code for Joomla 6 compatibility, updated dependencies, and split configuration options for authorization and token endpoints.
