@@ -18,7 +18,7 @@
 $finder = PhpCsFixer\Finder::create()
     ->in(
         [
-            dirname(__DIR__) . '/build/tmp',
+            dirname(__DIR__) . '/src',
         ]
         );
 

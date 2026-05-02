@@ -3,7 +3,7 @@
     "description": "Plugin - System - Sismosexampleoauth2 for Joomla!",
     "type": "project",
     "require": {
-        "php": ">=8.0"
+        "php": ">=8.4"
     },
     "license": "GNU General Public License version 3 or later; http://www.gnu.org/licenses/gpl-3.0.html",
     "authors": [
@@ -17,7 +17,8 @@
         "ext-zip": "*",
         "squizlabs/php_codesniffer": "^3.13.2",
         "friendsofphp/php-cs-fixer": "^3.85.1",
-        "phpstan/phpstan": "2.1.x-dev"
+        "phpstan/phpstan": "^2.1.0",
+        "phpstan/phpstan-deprecation-rules": "^2"
     },
     "scripts": {
         "post-install-cmd": [
